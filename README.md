@@ -30,4 +30,4 @@ Make sure to set up your environment variables in a `.env.local` file before run
 cp .env.example .env.local
 ```
 
-Then edit the `.env` file with your actual configuration values.
+Then edit the `.env.local` file with your actual configuration values.
