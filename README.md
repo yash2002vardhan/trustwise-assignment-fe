@@ -25,7 +25,7 @@ docker compose down
 
 ## Environment Variables
 
-Make sure to set up your environment variables in a `.env` file before running the application. You can copy the example file:
+Make sure to set up your environment variables in a `.env.local` file before running the application. You can copy the example file:
 ```bash
 cp .env.example .env.local
 ```
