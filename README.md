@@ -31,11 +31,3 @@ cp .env.example .env
 ```
 
 Then edit the `.env` file with your actual configuration values.
-
-## Technologies Used
-
-- Next.js 15.1.6
-- React 19
-- Chart.js
-- TailwindCSS
-- TypeScript
