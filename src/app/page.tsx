@@ -226,35 +226,44 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-gray-800 transition-colors duration-200">
-      <main className="max-w-4xl mx-auto p-8">
-        <div className="flex justify-end mb-6">
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 via-gray-100 to-gray-200 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 transition-colors duration-500">
+      <div className="fixed inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px] dark:bg-[linear-gradient(to_right,#ffffff12_1px,transparent_1px),linear-gradient(to_bottom,#ffffff12_1px,transparent_1px)] pointer-events-none"></div>
+      <main className="relative max-w-5xl mx-auto p-8">
+        <div className="flex justify-between items-center mb-12">
+          <div className="flex items-center space-x-2">
+            <div className="h-8 w-8 bg-blue-500 rounded-lg animate-pulse"></div>
+            <span className="text-xl font-semibold text-gray-700 dark:text-gray-300">TrustWise AI</span>
+          </div>
           <button
             onClick={toggleTheme}
-            className="p-2 rounded-full bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors duration-200"
+            className="p-3 rounded-xl bg-white dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 shadow-lg hover:shadow-xl transition-all duration-300 group"
             aria-label="Toggle theme"
           >
             {darkMode ? (
-              <svg className="w-6 h-6 text-yellow-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-6 h-6 text-yellow-500 group-hover:rotate-90 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
               </svg>
             ) : (
-              <svg className="w-6 h-6 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-6 h-6 text-indigo-600 group-hover:rotate-90 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
               </svg>
             )}
           </button>
         </div>
 
-        <div className="text-center mb-12">
-          <h1 className="text-4xl font-bold text-gray-800 dark:text-white mb-2">Response Evaluator</h1>
-          <p className="text-gray-600 dark:text-gray-400">Evaluate text for gibberish model and hallucination model</p>
+        <div className="text-center mb-16 space-y-4">
+          <h1 className="text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-indigo-600 dark:from-blue-400 dark:to-indigo-400 mb-4">
+            Response Evaluator
+          </h1>
+          <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+            Evaluate text using our advanced Gibberish and Hallucination detection models
+          </p>
         </div>
         
         {error && (
-          <div className="mb-8 p-4 bg-red-50 dark:bg-red-900/30 border border-red-200 dark:border-red-800 rounded-xl text-red-700 dark:text-red-400 shadow-sm transition-all">
+          <div className="mb-8 p-4 bg-red-50 dark:bg-red-900/30 border border-red-200 dark:border-red-800 rounded-xl text-red-700 dark:text-red-400 shadow-lg backdrop-blur-sm transition-all duration-300 animate-slideIn">
             <div className="flex items-center">
-              <svg className="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+              <svg className="w-5 h-5 mr-2 animate-bounce" fill="currentColor" viewBox="0 0 20 20">
                 <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clipRule="evenodd" />
               </svg>
               {error}
@@ -262,19 +271,19 @@ export default function Home() {
           </div>
         )}
 
-        <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-8 mb-8">
+        <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-lg rounded-2xl shadow-2xl p-8 mb-12 transform transition-all duration-300 hover:shadow-3xl">
           <textarea
             value={inputText}
             onChange={(e) => setInputText(e.target.value)}
-            className="w-full h-40 p-4 border border-gray-200 dark:border-gray-700 rounded-xl resize-none focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
-            placeholder="Enter your text here..."
+            className="w-full h-40 p-6 border-2 border-gray-200 dark:border-gray-700 rounded-xl resize-none focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 bg-white dark:bg-gray-700 text-gray-900 dark:text-white text-lg"
+            placeholder="Enter your text here for evaluation..."
           />
           
-          <div className="flex gap-4 mt-6">
+          <div className="flex gap-6 mt-8">
             <button
               onClick={handleEvaluate}
               disabled={isEvaluating || !inputText || !backendUrl}
-              className="flex-1 px-6 py-3 text-white bg-blue-500 dark:bg-blue-600 rounded-xl font-medium shadow-sm hover:bg-blue-600 dark:hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200 ease-in-out"
+              className="flex-1 px-8 py-4 text-white bg-gradient-to-r from-blue-500 to-indigo-600 hover:from-blue-600 hover:to-indigo-700 rounded-xl font-medium shadow-lg hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300 transform hover:-translate-y-1"
             >
               {isEvaluating ? (
                 <span className="flex items-center justify-center">
@@ -284,13 +293,13 @@ export default function Home() {
                   </svg>
                   Evaluating...
                 </span>
-              ) : "Evaluate"}
+              ) : "Evaluate Response"}
             </button>
             
             <button
               onClick={handleGetHistory}
               disabled={isLoadingHistory || !backendUrl}
-              className="flex-1 px-6 py-3 text-white bg-green-500 dark:bg-green-600 rounded-xl font-medium shadow-sm hover:bg-green-600 dark:hover:bg-green-700 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200 ease-in-out"
+              className="flex-1 px-8 py-4 text-white bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 hover:to-teal-700 rounded-xl font-medium shadow-lg hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300 transform hover:-translate-y-1"
             >
               {isLoadingHistory ? (
                 <span className="flex items-center justify-center">
@@ -300,46 +309,46 @@ export default function Home() {
                   </svg>
                   Loading History...
                 </span>
-              ) : "View History"}
+              ) : "View Evaluation History"}
             </button>
           </div>
         </div>
 
         {result && (
-          <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-8 mb-8 transition-all">
-            <h2 className="text-2xl font-bold text-gray-800 dark:text-white mb-6">Evaluation Results</h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              <div className="bg-blue-50 dark:bg-blue-900/30 rounded-xl p-6">
+          <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-lg rounded-2xl shadow-2xl p-8 mb-12 transform transition-all duration-300 hover:shadow-3xl animate-slideUp">
+            <h2 className="text-2xl font-bold text-gray-800 dark:text-white mb-8">Latest Evaluation Results</h2>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              <div className="bg-gradient-to-br from-blue-50 to-blue-100 dark:from-blue-900/30 dark:to-blue-800/30 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
                 <h3 className="text-sm font-medium text-blue-800 dark:text-blue-300 mb-2">Gibberish Model Class</h3>
-                <p className="text-2xl font-bold text-blue-900 dark:text-blue-200">{result.gibberish.class}</p>
+                <p className="text-3xl font-bold text-blue-900 dark:text-blue-200">{result.gibberish.class}</p>
               </div>
-              <div className="bg-green-50 dark:bg-green-900/30 rounded-xl p-6">
-                <h3 className="text-sm font-medium text-green-800 dark:text-green-300 mb-2">Gibberish Model Score</h3>
-                <p className="text-2xl font-bold text-green-900 dark:text-green-200">{result.gibberish.score.toFixed(2)}</p>
+              <div className="bg-gradient-to-br from-emerald-50 to-emerald-100 dark:from-emerald-900/30 dark:to-emerald-800/30 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+                <h3 className="text-sm font-medium text-emerald-800 dark:text-emerald-300 mb-2">Gibberish Model Score</h3>
+                <p className="text-3xl font-bold text-emerald-900 dark:text-emerald-200">{result.gibberish.score.toFixed(2)}</p>
               </div>
-              <div className="bg-purple-50 dark:bg-purple-900/30 rounded-xl p-6">
+              <div className="bg-gradient-to-br from-purple-50 to-purple-100 dark:from-purple-900/30 dark:to-purple-800/30 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
                 <h3 className="text-sm font-medium text-purple-800 dark:text-purple-300 mb-2">Hallucination Model Score</h3>
-                <p className="text-2xl font-bold text-purple-900 dark:text-purple-200">{result.hallucination.toFixed(2)}</p>
+                <p className="text-3xl font-bold text-purple-900 dark:text-purple-200">{result.hallucination.toFixed(2)}</p>
               </div>
             </div>
           </div>
         )}
 
         {history.length > 0 && (
-          <div className="space-y-8">
-            <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-8">
-              <h2 className="text-2xl font-bold text-gray-800 dark:text-white mb-6">Score Trends</h2>
+          <div className="space-y-12 animate-slideUp">
+            <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-lg rounded-2xl shadow-2xl p-8">
+              <h2 className="text-2xl font-bold text-gray-800 dark:text-white mb-8">Score Trends</h2>
               <div className="h-[400px] w-full">
                 <Line options={chartOptions} data={getChartData()} />
               </div>
             </div>
 
-            <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-8">
-              <h2 className="text-2xl font-bold text-gray-800 dark:text-white mb-6">Evaluation History</h2>
+            <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-lg rounded-2xl shadow-2xl p-8">
+              <h2 className="text-2xl font-bold text-gray-800 dark:text-white mb-8">Evaluation History</h2>
               <div className="overflow-x-auto">
                 <table className="w-full">
                   <thead>
-                    <tr className="border-b border-gray-200 dark:border-gray-700">
+                    <tr className="border-b-2 border-gray-200 dark:border-gray-700">
                       <th className="text-left py-4 px-4 text-sm font-medium text-gray-500 dark:text-gray-400">Evaluation #</th>
                       <th className="text-left py-4 px-4 text-sm font-medium text-gray-500 dark:text-gray-400">Evaluated Text</th>
                       <th className="text-left py-4 px-4 text-sm font-medium text-gray-500 dark:text-gray-400">Gibberish Model Class</th>
@@ -351,10 +360,10 @@ export default function Home() {
                     {history.map((item, index) => (
                       <tr 
                         key={index}
-                        className="group hover:bg-gray-50 dark:hover:bg-gray-700/50 transition-colors duration-200"
+                        className="group hover:bg-gray-50/50 dark:hover:bg-gray-700/50 transition-colors duration-200"
                       >
                         <td className="py-4 px-4">
-                          <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-300">
+                          <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-gradient-to-r from-gray-100 to-gray-200 dark:from-gray-700 dark:to-gray-600 text-gray-800 dark:text-gray-300 shadow-sm">
                             Eval {index + 1}
                           </span>
                         </td>
@@ -366,7 +375,7 @@ export default function Home() {
                           </div>
                         </td>
                         <td className="py-4 px-4">
-                          <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300">
+                          <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-gradient-to-r from-blue-100 to-blue-200 dark:from-blue-900/30 dark:to-blue-800/30 text-blue-800 dark:text-blue-300 shadow-sm">
                             {item.gibberish_model_class}
                           </span>
                         </td>
@@ -384,11 +393,6 @@ export default function Home() {
                     ))}
                   </tbody>
                 </table>
-                {history.length === 0 && (
-                  <div className="text-center py-8">
-                    <p className="text-gray-500 dark:text-gray-400">No evaluation history available</p>
-                  </div>
-                )}
               </div>
             </div>
           </div>
